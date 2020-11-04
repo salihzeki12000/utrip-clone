@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Discovery from "./containers/Discovery/Discovery";
+import Destination from "./containers/Destination/Destination";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Discovery} />
+        <Route exact path="/:destinationSlug" component={Destination} />
         <Redirect to="/" />
       </Switch>
     </div>

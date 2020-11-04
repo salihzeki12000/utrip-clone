@@ -1,0 +1,24 @@
+.hero {
+  background-image: url("https://cdn-image.departures.com/sites/default/files/1545062596/quiraing-trotternish-landscape-isle-skye-scotland-uk-SCOT1218.jpg");
+  border: 0;
+  height: 80vh;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  max-height: 480px;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+}
+
+.hero-title {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 50px;
+  width: 100%;
+  text-shadow: 2px 2px 8px #000000;
+}

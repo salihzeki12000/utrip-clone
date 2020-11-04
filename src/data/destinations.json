@@ -1,0 +1,20 @@
+{
+  "seattle-wa": {
+    "city": "Seattle",
+    "state": "Washington",
+    "country": "United States",
+    "image": "https://www.roadaffair.com/wp-content/uploads/2017/10/seattle-skyline-washington-shutterstock_503999926.jpg"
+  },
+  "portland-or": {
+    "city": "Portland",
+    "state": "Oregon",
+    "country": "United States",
+    "image": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_478029144_227706.jpg"
+  },
+  "taipei-tw": {
+    "city": "Taipei",
+    "state": "",
+    "country": "Taiwan",
+    "image": "https://photos.mandarinoriental.com/is/image/MandarinOriental/dmo-motpe-header?$MO_masthead-property-mobile$"
+  }
+}
