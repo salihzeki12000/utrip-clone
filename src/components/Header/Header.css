@@ -1,14 +1,11 @@
 .header {
-  background-color: #808080;
+  background-color: #323231;
   color: #fff;
-  height: 60px;
-  padding: 10px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  padding: 0 20px;
 }
-  .headerLinks {
-  	margin-top: 0;
-  }
-    li {
-      display: inline-block;
-      margin: 0 10px;
-    }
+.logo {
+  height: 40px;
+}
