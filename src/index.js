@@ -19,7 +19,7 @@ const renderApp = () => {
 // @ts-ignore
 if (module.hot) {
   // @ts-ignore
-  module.hot.accept("./components/App.jsx", () => {
+  module.hot.accept("./App.js", () => {
     renderApp();
   });
 }
