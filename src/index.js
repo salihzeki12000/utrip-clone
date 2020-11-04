@@ -1,7 +1,7 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './components/App.jsx';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
 const renderApp = () => {
   try {
@@ -9,15 +9,17 @@ const renderApp = () => {
       <BrowserRouter>
         <App />
       </BrowserRouter>,
-      document.getElementById('root')
-   	);
+      document.getElementById("root")
+    );
   } catch (error) {
-    console.warn('Render exception!', error);
+    console.warn("Render exception!", error);
   }
 };
 
+// @ts-ignore
 if (module.hot) {
-  module.hot.accept('./components/App.jsx', () => {
+  // @ts-ignore
+  module.hot.accept("./components/App.jsx", () => {
     renderApp();
   });
 }
