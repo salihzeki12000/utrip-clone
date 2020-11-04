@@ -1,0 +1,14 @@
+.header {
+  background-color: #808080;
+  color: #fff;
+  height: 60px;
+  padding: 10px;
+  text-align: right;
+}
+  .headerLinks {
+  	margin-top: 0;
+  }
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
