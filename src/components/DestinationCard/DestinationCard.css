@@ -2,15 +2,6 @@
   width: 100%;
   margin: 10px 0;
   text-decoration: none;
-  /* width: calc(50vw - 28px);
-  margin: 10px; */
-}
-
-@media only screen and (min-width: 600px) {
-  .destinationCardWrapper {
-    margin: 5px;
-    width: calc(50vw - 23px);
-  }
 }
 
 .destinationCard {
@@ -33,4 +24,24 @@
   color: #fff;
   margin: 0;
   margin-left: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .destinationCardWrapper {
+    margin: 5px;
+    width: calc(50vw - 23px);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .destinationCardWrapper.small {
+    width: calc(40% - 10px);
+  }
+  .destinationCardWrapper.large {
+    width: calc(60% - 10px);
+  }
+
+  .destinationCard {
+    height: 255px;
+  }
 }

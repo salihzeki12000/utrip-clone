@@ -11,9 +11,16 @@ export default function Discovery() {
         <h1 className="heroTitle">Experience the World</h1>
       </div>
       <div className="destinations">
-        {destinations.map((destination) => (
-          <DestinationCard key={destination.slug} destination={destination} />
-        ))}
+        {destinations.map((destination, i) => {
+          const size = (i + 1) % 4 >= 2 ? "large" : "small";
+          return (
+            <DestinationCard
+              key={destination.slug}
+              size={size}
+              destination={destination}
+            />
+          );
+        })}
       </div>
     </div>
   );

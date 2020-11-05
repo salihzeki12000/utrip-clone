@@ -41,4 +41,9 @@
   .heroTitle {
     font-size: 52px;
   }
+
+  .destinations {
+    max-width: 1200px;
+    margin: auto;
+  }
 }
