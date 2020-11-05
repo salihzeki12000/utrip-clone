@@ -8,17 +8,54 @@
   overflow: hidden;
   position: relative;
   align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   background-size: cover;
   background-position: center center;
-  text-align: center;
+  color: #fff;
 }
 
 .heroTitle {
-  color: #fff;
   font-weight: bold;
   font-size: 30px;
-  width: 100%;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
+}
+
+.actions {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.destinationSearch {
+  font-size: 16px;
+  width: 175px;
+  background: #fff;
+  color: rgb(50, 50, 50);
+  height: 36px;
+  outline: 0px;
+  padding: 5px 25px;
+  border: none;
+}
+
+.actionSeparator {
+  font-size: 20px;
+  margin: 16px 0;
+}
+
+.inspireButton {
+  font-size: 16px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: rgba(50, 50, 50, 0.5);
+  padding: 12px 45px;
+  cursor: pointer;
+}
+
+.inspireButton:hover {
+  background-color: #fff;
+  color: #323232;
 }
 
 .destinations {
@@ -36,14 +73,34 @@
 @media only screen and (min-width: 800px) {
   .discoveryHero {
     height: 600px;
+    justify-content: center;
   }
 
   .heroTitle {
     font-size: 52px;
+    margin-top: 0;
   }
 
   .destinations {
     max-width: 1200px;
     margin: auto;
+  }
+
+  .actions {
+    flex-flow: row;
+  }
+
+  .destinationSearch {
+    font-size: 19px;
+    width: 206px;
+    height: 41px;
+  }
+
+  .actionSeparator {
+    margin: 0 32px;
+  }
+
+  .inspireButton {
+    font-size: 20px;
   }
 }

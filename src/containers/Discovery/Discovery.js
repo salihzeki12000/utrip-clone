@@ -9,6 +9,15 @@ export default function Discovery() {
     <div>
       <div className="discoveryHero">
         <h1 className="heroTitle">Experience the World</h1>
+        <div className="actions">
+          <input
+            className="destinationSearch"
+            type="text"
+            placeholder="Enter a Destination"
+          />
+          <span className="actionSeparator">or</span>
+          <button className="inspireButton">Let Us Inspire You</button>
+        </div>
       </div>
       <div className="destinations">
         {destinations.map((destination, i) => {
