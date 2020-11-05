@@ -1,11 +1,11 @@
 .header {
-  background-color: #323231;
+  background-color: #323232;
   color: #fff;
   display: flex;
   align-items: center;
-  height: 68px;
+  height: 55px;
   padding: 0 20px;
 }
 .logo {
-  height: 40px;
+  height: 35px;
 }

@@ -7,8 +7,8 @@ import destinations from "../../data/destinations";
 export default function Discovery() {
   return (
     <div>
-      <div className="hero">
-        <h1 className="hero-title">Experience the World</h1>
+      <div className="discoveryHero">
+        <h1 className="heroTitle">Experience the World</h1>
       </div>
       <div className="destinations">
         {destinations.map((destination) => (
