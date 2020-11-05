@@ -1,0 +1,27 @@
+.destinationCardWrapper {
+  width: 48%;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.destinationCard {
+  height: 255px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.destinationNameWrapper {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 20px;
+  position: absolute;
+  bottom: 25%;
+}
+
+.destinationName {
+  color: #fff;
+  margin: 0;
+  margin-left: 10px;
+}

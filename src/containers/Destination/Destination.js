@@ -6,7 +6,9 @@ import "./Destination.css";
 
 export default function Destination() {
   const { destinationSlug } = useParams();
-  const destination = destinations[destinationSlug];
+  const destination = destinations.filter(
+    (destination) => destination.slug === destinationSlug
+  )[0];
 
   return (
     <div>
@@ -16,7 +18,7 @@ export default function Destination() {
       >
         <h1 className="hero-title">{destination.city}</h1>
       </div>
-      <p>There's a bunch of stuff to do here</p>
+      <p>There&apos;s a bunch of stuff to do here</p>
     </div>
   );
 }
