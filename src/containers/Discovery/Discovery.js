@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import DestinationCard from "../../components/DestinationCard/DestinationCard";
 import "./Discovery.css";
 // @ts-ignore
 import destinations from "../../data/destinations";
 
+const scrollToRefObject = (ref) =>
+  window.scrollTo({
+    top: ref.current.offsetTop,
+    behavior: "smooth",
+  });
+
 export default function Discovery() {
+  const destinationsRef = useRef(null);
+  const executeScroll = () => scrollToRefObject(destinationsRef);
+
   return (
     <div>
       <div className="discoveryHero">
@@ -16,10 +25,12 @@ export default function Discovery() {
             placeholder="Enter a Destination"
           />
           <span className="actionSeparator">or</span>
-          <button className="inspireButton">Let Us Inspire You</button>
+          <button onClick={executeScroll} className="inspireButton">
+            Let Us Inspire You
+          </button>
         </div>
       </div>
-      <div className="destinations">
+      <div className="destinations" ref={destinationsRef}>
         {destinations.map((destination, i) => {
           const size = (i + 1) % 4 >= 2 ? "large" : "small";
           return (
