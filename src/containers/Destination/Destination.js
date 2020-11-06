@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 // @ts-ignore
 import destinations from "../../data/destinations";
 // @ts-ignore
-import styles from "./Destination.css";
+import styles from "./Destination.module.css";
 
 export default function Destination() {
   const { destinationSlug } = useParams();

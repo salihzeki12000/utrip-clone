@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
-import styles from "./Header.css";
+import styles from "./Header.module.css";
 // @ts-ignore
 import logo from "../../assets/images/utrip_logo.png";
 

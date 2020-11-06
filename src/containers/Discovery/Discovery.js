@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
+import Select from "react-select";
 import DestinationCard from "../../components/DestinationCard/DestinationCard";
 // @ts-ignore
-import styles from "./Discovery.css";
-// @ts-ignore
 import destinations from "../../data/destinations";
+// @ts-ignore
+import styles from "./Discovery.module.css";
+import "./Select.css";
 
 const scrollToRefObject = (ref) =>
   window.scrollTo({
@@ -11,22 +13,33 @@ const scrollToRefObject = (ref) =>
     behavior: "smooth",
   });
 
-export default function Discovery() {
+const options = [];
+destinations.map((destination) => {
+  options.push({ value: destination.slug, label: destination.city });
+});
+
+export default function Discovery({ history }) {
   const destinationsRef = useRef(null);
   const executeScroll = () => scrollToRefObject(destinationsRef);
+
+  const handleSelect = (e) => {
+    history.push(e.value);
+  };
 
   return (
     <div>
       <div className={styles.hero}>
         <h1 className={styles.heroTitle}>Experience the World</h1>
         <div className={styles.actions}>
-          <input
-            className={styles.destinationSearch}
-            type="text"
+          <Select
+            className="destination-search-container"
+            classNamePrefix="destination-search"
+            options={options}
+            onChange={handleSelect}
             placeholder="Enter a Destination"
           />
           <span className={styles.actionSeparator}>or</span>
-          <button onClick={executeScroll} className={styles.inspireButton}>
+          <button className={styles.inspireButton} onClick={executeScroll}>
             Let Us Inspire You
           </button>
         </div>

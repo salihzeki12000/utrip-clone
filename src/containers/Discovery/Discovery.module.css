@@ -20,23 +20,13 @@
   font-size: 30px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 100px;
+  text-align: center;
 }
 
 .actions {
   display: flex;
   flex-flow: column;
   align-items: center;
-}
-
-.destinationSearch {
-  font-size: 16px;
-  width: 175px;
-  background: #fff;
-  color: rgb(50, 50, 50);
-  height: 36px;
-  outline: 0px;
-  padding: 5px 25px;
-  border: none;
 }
 
 .actionSeparator {
@@ -88,12 +78,6 @@
 
   .actions {
     flex-flow: row;
-  }
-
-  .destinationSearch {
-    font-size: 19px;
-    width: 206px;
-    height: 41px;
   }
 
   .actionSeparator {
