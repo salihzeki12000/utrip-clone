@@ -2,7 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 // @ts-ignore
 import destinations from "../../data/destinations";
-import "./Destination.css";
+// @ts-ignore
+import styles from "./Destination.css";
 
 export default function Destination() {
   const { destinationSlug } = useParams();
@@ -13,10 +14,10 @@ export default function Destination() {
   return (
     <div>
       <div
-        className="hero"
+        className={styles.hero}
         style={{ backgroundImage: `url(${destination.image})` }}
       >
-        <h1 className="hero-title">{destination.city}</h1>
+        <h1 className={styles.heroTitle}>{destination.city}</h1>
       </div>
       <p>There&apos;s a bunch of stuff to do here</p>
     </div>

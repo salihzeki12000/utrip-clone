@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./DestinationCard.css";
+// @ts-ignore
+import styles from "./DestinationCard.css";
 
 export default function DestinationCard({ destination, size }) {
   return (
-    <Link to={destination.slug} className={`destinationCardWrapper ${size}`}>
+    <Link
+      to={destination.slug}
+      className={`${styles.destinationCardWrapper} ${styles[size]}`}
+    >
       <div
-        className="destinationCard"
+        className={styles.destinationCard}
         style={{ backgroundImage: `url(${destination.image})` }}
       >
-        <div className="destinationNameWrapper">
-          <h2 className="destinationName">{destination.city}</h2>
+        <div className={styles.destinationNameWrapper}>
+          <h2 className={styles.destinationName}>{destination.city}</h2>
         </div>
       </div>
     </Link>

@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
+// @ts-ignore
+import styles from "./Header.css";
 // @ts-ignore
 import logo from "../../assets/images/utrip_logo.png";
 
 export default function Header() {
   return (
-    <div className="header">
+    <div className={styles.header}>
       <Link to="/">
-        <img className="logo" src={logo} alt="utrip" />
+        <img className={styles.logo} src={logo} alt="utrip" />
       </Link>
     </div>
   );

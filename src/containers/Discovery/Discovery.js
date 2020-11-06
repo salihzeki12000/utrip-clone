@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import DestinationCard from "../../components/DestinationCard/DestinationCard";
-import "./Discovery.css";
+// @ts-ignore
+import styles from "./Discovery.css";
 // @ts-ignore
 import destinations from "../../data/destinations";
 
@@ -16,21 +17,21 @@ export default function Discovery() {
 
   return (
     <div>
-      <div className="discoveryHero">
-        <h1 className="heroTitle">Experience the World</h1>
-        <div className="actions">
+      <div className={styles.hero}>
+        <h1 className={styles.heroTitle}>Experience the World</h1>
+        <div className={styles.actions}>
           <input
-            className="destinationSearch"
+            className={styles.destinationSearch}
             type="text"
             placeholder="Enter a Destination"
           />
-          <span className="actionSeparator">or</span>
-          <button onClick={executeScroll} className="inspireButton">
+          <span className={styles.actionSeparator}>or</span>
+          <button onClick={executeScroll} className={styles.inspireButton}>
             Let Us Inspire You
           </button>
         </div>
       </div>
-      <div className="destinations" ref={destinationsRef}>
+      <div className={styles.destinations} ref={destinationsRef}>
         {destinations.map((destination, i) => {
           const size = (i + 1) % 4 >= 2 ? "large" : "small";
           return (

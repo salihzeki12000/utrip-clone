@@ -10,10 +10,10 @@
   background-size: cover;
   background-position: center center;
   text-align: center;
+  color: #fff;
 }
 
-.hero-title {
-  color: #fff;
+.heroTitle {
   font-weight: bold;
   font-size: 50px;
   width: 100%;
