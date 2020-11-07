@@ -1,8 +1,10 @@
+@import "../../styles/colors.scss";
+
 .destination-search__control {
   height: 46px;
   width: 225px;
   outline: 0px;
-  color: #323232;
+  color: $dark-grey;
   padding: 5px 25px;
   border: none !important;
   border-radius: 0 !important;
@@ -14,11 +16,14 @@
 }
 
 .destination-search__menu {
-  color: #323232;
+  color: $dark-grey;
+  border-radius: 0 !important;
+  margin-top: 0 !important;
 }
 
 .destination-search__option {
   cursor: pointer !important;
+  border-bottom: solid silver 1px;
 }
 
 @media only screen and (min-width: 800px) {

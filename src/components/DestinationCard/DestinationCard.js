@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // @ts-ignore
-import styles from "./DestinationCard.module.css";
+import styles from "./DestinationCard.module.scss";
 
 export default function DestinationCard({ destination, size }) {
   return (

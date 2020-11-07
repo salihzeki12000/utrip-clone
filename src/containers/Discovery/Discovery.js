@@ -4,8 +4,8 @@ import DestinationCard from "../../components/DestinationCard/DestinationCard";
 // @ts-ignore
 import destinations from "../../data/destinations";
 // @ts-ignore
-import styles from "./Discovery.module.css";
-import "./Select.css";
+import styles from "./Discovery.module.scss";
+import "./Select.scss";
 
 const scrollToRefObject = (ref) =>
   window.scrollTo({

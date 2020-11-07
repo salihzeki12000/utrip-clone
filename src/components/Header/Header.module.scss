@@ -1,6 +1,8 @@
+@import "../../styles/colors.scss";
+
 .header {
-  background-color: #323232;
-  color: #fff;
+  background-color: $dark-grey;
+  color: $white;
   display: flex;
   align-items: center;
   height: 55px;

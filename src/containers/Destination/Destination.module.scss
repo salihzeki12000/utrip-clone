@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .hero {
   border: 0;
   margin: 0;
@@ -10,7 +12,7 @@
   background-size: cover;
   background-position: center center;
   text-align: center;
-  color: #fff;
+  color: $white;
 }
 
 .heroTitle {

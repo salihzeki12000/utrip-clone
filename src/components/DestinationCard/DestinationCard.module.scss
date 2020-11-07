@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .destinationCardWrapper {
   width: 100%;
   margin: 10px 0;
@@ -21,7 +23,7 @@
 }
 
 .destinationName {
-  color: #fff;
+  color: $white;
   margin: 0;
   margin-left: 10px;
 }

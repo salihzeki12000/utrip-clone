@@ -1,3 +1,5 @@
+@import "../../styles/colors.scss";
+
 .hero {
   background-image: url("https://cdn-image.departures.com/sites/default/files/1545062596/quiraing-trotternish-landscape-isle-skye-scotland-uk-SCOT1218.jpg");
   border: 0;
@@ -12,7 +14,7 @@
   flex-direction: column;
   background-size: cover;
   background-position: center center;
-  color: #fff;
+  color: $white;
 }
 
 .heroTitle {
@@ -36,16 +38,16 @@
 
 .inspireButton {
   font-size: 16px;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid $white;
+  color: $white;
   background-color: rgba(50, 50, 50, 0.5);
   padding: 12px 45px;
   cursor: pointer;
 }
 
 .inspireButton:hover {
-  background-color: #fff;
-  color: rgb(50, 50, 50);
+  background-color: $white;
+  color: $dark-grey;
 }
 
 .destinations {
