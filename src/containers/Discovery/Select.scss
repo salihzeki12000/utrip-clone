@@ -21,9 +21,17 @@
   margin-top: 0 !important;
 }
 
+.destination-search__menu-list {
+  padding: 0 !important;
+}
+
 .destination-search__option {
   cursor: pointer !important;
   border-bottom: solid silver 1px;
+}
+
+.destination-search__option:last-of-type {
+  border-bottom: none;
 }
 
 @media only screen and (min-width: 800px) {
