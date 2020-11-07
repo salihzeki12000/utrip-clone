@@ -2,7 +2,7 @@
 
 .hero {
   display: flex;
-  height: 480px;
+  height: 350px;
   align-items: center;
   background-size: cover;
   background-position: center center;
@@ -15,4 +15,24 @@
   font-size: 50px;
   width: 100%;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  // padding: 10px 0;
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 800px) {
+  .hero {
+    height: 480px;
+  }
+
+  .items {
+    max-width: 1200px;
+    margin: auto;
+  }
 }

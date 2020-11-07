@@ -1,0 +1,55 @@
+@import "../../styles/colors.scss";
+
+.itemCardWrapper {
+  width: 100%;
+  margin: 10px 0;
+  text-decoration: none;
+  border-top: solid #203168 4px;
+}
+
+.itemCard {
+  height: 225px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.itemNameWrapper {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 20px;
+  position: absolute;
+  bottom: 20%;
+}
+
+.itemName,
+.itemPhrase {
+  color: $white;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.itemPhrase {
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 600px) {
+  .itemCardWrapper {
+    margin: 5px;
+    width: calc(50% - 10px);
+  }
+}
+
+// @media only screen and (min-width: 800px) {
+//   .itemCardWrapper.small {
+//     width: calc(40% - 10px);
+//   }
+//   .itemCardWrapper.large {
+//     width: calc(60% - 10px);
+//   }
+
+//   .itemCard {
+//     height: 300px;
+//   }
+// }
