@@ -1,6 +1,7 @@
 import React from "react";
 // @ts-ignore
 import styles from "./ItemCard.module.scss";
+import colors from "../../styles/categoryColors";
 
 export default function ItemCard({ item }) {
   const size = "small";
@@ -8,7 +9,7 @@ export default function ItemCard({ item }) {
     <div
       // to={item.slug}
       className={`${styles.itemCardWrapper} ${styles[size]}`}
-      style={{ borderColor: "#D96459" }}
+      style={{ borderColor: colors.food }}
     >
       <div
         className={styles.itemCard}
