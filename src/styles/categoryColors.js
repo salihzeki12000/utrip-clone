@@ -7,6 +7,7 @@ const colors = {
   shopping: "#2d7a99",
   cuisine: "#203168",
   food: "#d96459",
+  nightlife: "#5b3872",
 };
 
 export default colors;

@@ -9,7 +9,7 @@ export default function ItemCard({ item }) {
     <div
       // to={item.slug}
       className={`${styles.itemCardWrapper} ${styles[size]}`}
-      style={{ borderColor: colors.food }}
+      style={{ borderColor: colors[item.category] }}
     >
       <div
         className={styles.itemCard}
