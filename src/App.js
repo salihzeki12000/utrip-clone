@@ -11,7 +11,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Discovery} />
-        <Route exact path="/:destinationSlug" component={Destination} />
+        <Route path="/:destinationSlug" component={Destination} />
         <Redirect to="/" />
       </Switch>
     </div>

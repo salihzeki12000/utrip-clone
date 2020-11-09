@@ -1,12 +1,15 @@
 import React from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 // @ts-ignore
 import styles from "./ItemCard.module.scss";
 import colors from "../../styles/categoryColors";
 
 export default function ItemCard({ item, size }) {
+  let { url } = useRouteMatch();
+  // props.item = item;
   return (
-    <div
-      // to={item.slug}
+    <Link
+      to={`${url}/${item.slug}`}
       className={`${styles.itemCardWrapper} ${styles[size]}`}
       style={{ borderColor: colors[item.category] }}
     >
@@ -19,6 +22,6 @@ export default function ItemCard({ item, size }) {
           <p className={styles.itemPhrase}>{item.phrase}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

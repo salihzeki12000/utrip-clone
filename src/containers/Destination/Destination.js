@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useRouteMatch, Switch, Route } from "react-router-dom";
 import useWindowDimensions from "../../hooks/windowDimensions";
 // @ts-ignore
 import destinations from "../../data/destinations";
@@ -8,6 +8,7 @@ import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./Destination.module.scss";
 import ItemCard from "../../components/ItemCard/ItemCard";
+import ItemDetails from "../../components/ItemDetails/ItemDetails";
 
 export default function Destination() {
   const { destinationSlug } = useParams();
@@ -17,6 +18,7 @@ export default function Destination() {
   )[0];
 
   const columns = width >= 1200 ? 4 : 3;
+  let { path } = useRouteMatch();
 
   return (
     <div>
@@ -35,6 +37,14 @@ export default function Destination() {
           return <ItemCard key={poi.slug} item={poi} size={size} />;
         })}
       </div>
+      <Switch>
+        <Route exact path={path}></Route>
+        <Route path={`${path}/:itemSlug`}>
+          <div className={styles.itemDetailsWrapper}>
+            <ItemDetails />
+          </div>
+        </Route>
+      </Switch>
     </div>
   );
 }
