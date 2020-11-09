@@ -3,8 +3,7 @@ import React from "react";
 import styles from "./ItemCard.module.scss";
 import colors from "../../styles/categoryColors";
 
-export default function ItemCard({ item }) {
-  const size = "small";
+export default function ItemCard({ item, size }) {
   return (
     <div
       // to={item.slug}

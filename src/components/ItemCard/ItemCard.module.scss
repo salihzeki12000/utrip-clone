@@ -41,15 +41,20 @@
   }
 }
 
-// @media only screen and (min-width: 800px) {
-//   .itemCardWrapper.small {
-//     width: calc(40% - 10px);
-//   }
-//   .itemCardWrapper.large {
-//     width: calc(60% - 10px);
-//   }
+@media only screen and (min-width: 800px) {
+  .itemCardWrapper.small {
+    width: calc(30% - 10px);
+  }
+  .itemCardWrapper.large {
+    width: calc(40% - 10px);
+  }
+}
 
-//   .itemCard {
-//     height: 300px;
-//   }
-// }
+@media only screen and (min-width: 1200px) {
+  .itemCardWrapper.small {
+    width: calc(20% - 10px);
+  }
+  .itemCardWrapper.large {
+    width: calc(40% - 10px);
+  }
+}

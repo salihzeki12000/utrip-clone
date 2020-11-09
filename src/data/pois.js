@@ -94,7 +94,7 @@ const pois = [
     location: "2205 2nd Ave, Seattle, WA 98121",
     phone: "206-728-6069",
     image:
-      "https://lh3.googleusercontent.com/proxy/PdyE5vf9ElI-BaVpsDFxg7LSPFsdVJM8kLGIIwQIB8OH7JdqdJwvS5WtXJKxcATWT3ra6pdBSepI_mdHeE53NVWZ_f0ImYfX7bgAkfkOG_FJryqblJbuQTHWGdPswU8kidgexpj3Ac89YhcaZXROvko1a2uTE074FCRMWHVMJUTHSvy-3KdyMXnCw_2A",
+      "https://res.cloudinary.com/sagacity/image/upload/v1510784730/BathtubGin9254_eplikm.jpg",
     recommendation: "Ask the bartender to mix something up for you",
     category: "nightlife",
   },
