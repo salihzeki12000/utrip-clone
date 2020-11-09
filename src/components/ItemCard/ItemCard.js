@@ -16,7 +16,7 @@ export default function ItemCard({ item, size }) {
       >
         <div className={styles.itemNameWrapper}>
           <h3 className={styles.itemName}>{item.name}</h3>
-          <p className={styles.itemPhrase}>This is a phrase</p>
+          <p className={styles.itemPhrase}>{item.phrase}</p>
         </div>
       </div>
     </div>
