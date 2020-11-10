@@ -17,14 +17,17 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.items {
-  display: flex;
-  flex-wrap: wrap;
+.contentWrapper {
   padding-bottom: 10px;
 }
 
+.items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .itemDetailsWrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -41,8 +44,12 @@
     height: 480px;
   }
 
-  .items {
+  .contentWrapper {
     max-width: 1200px;
     margin: auto;
+  }
+
+  .itemDetailsWrapper {
+    position: relative;
   }
 }

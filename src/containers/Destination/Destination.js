@@ -28,23 +28,26 @@ export default function Destination() {
       >
         <h1 className={styles.heroTitle}>{destination.city}</h1>
       </div>
-      <div className={styles.items}>
-        {pois.map((poi, i) => {
-          let size = (i % 16) % 5 == 0 ? "large" : "small";
-          if (columns == 3) {
-            size = (i % 9) % 4 == 0 ? "large" : "small";
-          }
-          return <ItemCard key={poi.slug} item={poi} size={size} />;
-        })}
+      <div className={styles.contentWrapper}>
+        <Switch>
+          <Route exact path={path}>
+            <div className={styles.items}>
+              {pois.map((poi, i) => {
+                let size = (i % 16) % 5 == 0 ? "large" : "small";
+                if (columns == 3) {
+                  size = (i % 9) % 4 == 0 ? "large" : "small";
+                }
+                return <ItemCard key={poi.slug} item={poi} size={size} />;
+              })}
+            </div>
+          </Route>
+          <Route path={`${path}/:itemSlug`}>
+            <div className={styles.itemDetailsWrapper}>
+              <ItemDetails />
+            </div>
+          </Route>
+        </Switch>
       </div>
-      <Switch>
-        <Route exact path={path}></Route>
-        <Route path={`${path}/:itemSlug`}>
-          <div className={styles.itemDetailsWrapper}>
-            <ItemDetails />
-          </div>
-        </Route>
-      </Switch>
     </div>
   );
 }

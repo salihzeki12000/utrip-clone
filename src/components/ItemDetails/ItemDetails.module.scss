@@ -14,13 +14,61 @@
 
 .itemHeader {
   border-bottom: solid silver 1px;
+  padding: 0 10px;
 }
 
 .name {
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
 .phrase {
   color: grey;
   margin: 8px 0;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid silver 1px;
+  padding: 10px;
+}
+.contactType {
+  text-align: center;
+}
+.contactIcon {
+}
+.contactLabel {
+  font-size: 12px;
+}
+
+.about {
+  padding: 0 10px;
+}
+.aboutHeader {
+  margin-bottom: 0;
+}
+.aboutContent {
+  margin-top: 5px;
+}
+
+.mapWrapper {
+  display: none;
+}
+
+@media only screen and (min-width: 800px) {
+  .content {
+    display: flex;
+  }
+  .details {
+    width: 55%;
+  }
+  .mapWrapper {
+    display: inline-block;
+    margin-left: 10px;
+    width: calc(45% - 10px);
+    background: url("../../assets/images/mock-map.png");
+    background-size: cover;
+    background-position: center center;
+  }
 }
