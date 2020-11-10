@@ -16,6 +16,7 @@ import pois from "../../data/pois";
 import styles from "./Destination.module.scss";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
+import Map from "../../components/Map/Map";
 
 const scrollToRefObject = (ref) =>
   window.scrollTo({
@@ -100,7 +101,7 @@ export default function Destination() {
                 <Sticky>
                   {({ style }) => (
                     <div style={{ ...style }}>
-                      <MapWrapper />
+                      <MapWrapper items={pois} />
                     </div>
                   )}
                 </Sticky>
@@ -108,7 +109,7 @@ export default function Destination() {
             </StickyContainer>
           </Route>
           <Route exact path={`${path}/map`}>
-            <MapWrapper />
+            <MapWrapper items={pois} />
           </Route>
           <Route path={`${path}/:itemSlug`}>
             <div className={styles.itemDetailsWrapper}>
@@ -121,6 +122,10 @@ export default function Destination() {
   );
 }
 
-function MapWrapper() {
-  return <div className={styles.mapWrapper}></div>;
+function MapWrapper({ items }) {
+  return (
+    <div className={styles.mapWrapper}>
+      <Map items={items} />
+    </div>
+  );
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
+import GoogleMapReact from "google-map-react";
 // @ts-ignore
 import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./ItemDetails.module.scss";
 import colors from "../../styles/categoryColors";
+import MapCircle from "../../components/Map/MapCircle/MapCirlce";
 
 export default function ItemDetails() {
   const { itemSlug } = useParams();
@@ -58,7 +60,20 @@ export default function ItemDetails() {
             </p>
           </div>
         </div>
-        <div className={styles.mapWrapper}>Map</div>
+        <div className={styles.mapWrapper}>
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyBMuLSNHehI898XQW2UDuSNiHjK10RUNFg",
+            }}
+            defaultCenter={{
+              lat: item.lat,
+              lng: item.lng,
+            }}
+            defaultZoom={15}
+          >
+            <MapCircle lat={item.lat} lng={item.lng} item={item} />
+          </GoogleMapReact>
+        </div>
       </div>
     </div>
   );
