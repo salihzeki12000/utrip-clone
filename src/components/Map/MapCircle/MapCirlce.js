@@ -3,14 +3,13 @@ import React from "react";
 import styles from "./MapCircle.module.scss";
 import colors from "../../../styles/categoryColors";
 
-export default function MapCircle({ item }) {
-  console.log(item.category, colors[item.category]);
+export default function MapCircle({ item, $hover }) {
   return (
     <div
-      className={styles.mapCricle}
+      className={styles.mapCircle}
       style={{ backgroundColor: colors[item.category] }}
     >
-      {item.name}
+      {$hover ? item.name : ""}
     </div>
   );
 }
