@@ -39,12 +39,7 @@
 }
 
 .mapWrapper {
-  // display: inline-block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  height: calc(100vh - 41px);
   background: url("../../assets/images/mock-map.png");
   background-size: cover;
   background-position: center center;
@@ -60,8 +55,8 @@
   padding: 0 10px;
 }
 
-@media only screen and (min-width: 600px) {
-}
+// @media only screen and (min-width: 600px) {
+// }
 
 @media only screen and (min-width: 800px) {
   .hero {
@@ -78,16 +73,26 @@
   }
 
   .items.openMap {
-    width: 55%;
+    width: calc(100% - 350px);
   }
 
   .mapWrapper {
-    position: relative;
-    width: 45%;
+    height: calc(100vh - 10px);
+    width: 350px;
     margin-top: 5px;
   }
 
   .itemDetailsWrapper {
     position: relative;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .items.openMap {
+    width: calc(100% - 500px);
+  }
+
+  .mapWrapper {
+    width: 500px;
   }
 }

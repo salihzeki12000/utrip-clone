@@ -1,5 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useRouteMatch, Switch, Route } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import {
+  useParams,
+  useRouteMatch,
+  useHistory,
+  Switch,
+  Route,
+} from "react-router-dom";
+import { StickyContainer, Sticky } from "react-sticky";
 import useWindowDimensions from "../../hooks/windowDimensions";
 // @ts-ignore
 import destinations from "../../data/destinations";
@@ -10,21 +17,45 @@ import styles from "./Destination.module.scss";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 
+const scrollToRefObject = (ref) =>
+  window.scrollTo({
+    top: ref.current.offsetTop,
+    behavior: "smooth",
+  });
+
 export default function Destination() {
   const [showMap, setShowMap] = useState(false);
   const { destinationSlug } = useParams();
+  const history = useHistory();
   const { width } = useWindowDimensions();
   const destination = destinations.filter(
     (destination) => destination.slug === destinationSlug
   )[0];
 
   const columns = width >= 1200 ? 4 : 3;
-  let { path } = useRouteMatch();
+  let { path, url } = useRouteMatch();
 
   useEffect(() => {
     // TODO: Figure out why react-router-dom is scrolling to position of previous page
     window.scrollTo(0, 0);
   }, []);
+
+  const mapButtonRef = useRef(null);
+  const executeScroll = () => scrollToRefObject(mapButtonRef);
+  const onMapClick = () => {
+    if (width >= 800) {
+      setShowMap(!showMap);
+    } else {
+      if (showMap) {
+        setShowMap(!showMap);
+        history.push(`${url}`);
+      } else {
+        setShowMap(!showMap);
+        history.push(`${url}/map`);
+        executeScroll();
+      }
+    }
+  };
 
   return (
     <div>
@@ -37,7 +68,8 @@ export default function Destination() {
       <div className={styles.controls}>
         <button
           className={styles.mapToggle}
-          onClick={() => setShowMap(!showMap)}
+          onClick={onMapClick}
+          ref={mapButtonRef}
         >
           Map
         </button>
@@ -45,7 +77,7 @@ export default function Destination() {
       <div className={styles.contentWrapper}>
         <Switch>
           <Route exact path={path}>
-            <div
+            <StickyContainer
               className={`${styles.itemsWrapper} ${
                 showMap ? styles.openMap : ""
               }`}
@@ -64,8 +96,19 @@ export default function Destination() {
                   return <ItemCard key={poi.slug} item={poi} size={size} />;
                 })}
               </div>
-              {showMap ? <div className={styles.mapWrapper}></div> : null}
-            </div>
+              {showMap && width >= 800 ? (
+                <Sticky>
+                  {({ style }) => (
+                    <div style={{ ...style }}>
+                      <MapWrapper />
+                    </div>
+                  )}
+                </Sticky>
+              ) : null}
+            </StickyContainer>
+          </Route>
+          <Route exact path={`${path}/map`}>
+            <MapWrapper />
           </Route>
           <Route path={`${path}/:itemSlug`}>
             <div className={styles.itemDetailsWrapper}>
@@ -76,4 +119,8 @@ export default function Destination() {
       </div>
     </div>
   );
+}
+
+function MapWrapper() {
+  return <div className={styles.mapWrapper}></div>;
 }
