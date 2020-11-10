@@ -6,7 +6,6 @@ import colors from "../../styles/categoryColors";
 
 export default function ItemCard({ item, size }) {
   let { url } = useRouteMatch();
-  // props.item = item;
   return (
     <Link
       to={`${url}/${item.slug}`}

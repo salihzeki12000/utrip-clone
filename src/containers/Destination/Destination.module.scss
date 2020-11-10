@@ -17,13 +17,37 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.controls {
+  display: flex;
+  padding: 10px;
+}
+.mapToggle {
+  margin-left: auto;
+}
+
 .contentWrapper {
   padding-bottom: 10px;
+}
+
+.itemsWrapper {
+  position: relative;
 }
 
 .items {
   display: flex;
   flex-wrap: wrap;
+}
+
+.mapWrapper {
+  // display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("../../assets/images/mock-map.png");
+  background-size: cover;
+  background-position: center center;
 }
 
 .itemDetailsWrapper {
@@ -47,6 +71,20 @@
   .contentWrapper {
     max-width: 1200px;
     margin: auto;
+  }
+
+  .itemsWrapper.openMap {
+    display: flex;
+  }
+
+  .items.openMap {
+    width: 55%;
+  }
+
+  .mapWrapper {
+    position: relative;
+    width: 45%;
+    margin-top: 5px;
   }
 
   .itemDetailsWrapper {
