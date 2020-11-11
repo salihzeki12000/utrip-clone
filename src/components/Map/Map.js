@@ -6,7 +6,7 @@ export default function Map({ items }) {
   return (
     <GoogleMapReact
       bootstrapURLKeys={{
-        key: "AIzaSyBMuLSNHehI898XQW2UDuSNiHjK10RUNFg",
+        key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
       }}
       defaultCenter={{
         lat: items[0].lat,
