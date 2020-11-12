@@ -66,14 +66,16 @@ export default function Destination() {
       >
         <h1 className={styles.heroTitle}>{destination.city}</h1>
       </div>
-      <div className={styles.controls}>
-        <button
-          className={styles.mapToggle}
-          onClick={onMapClick}
-          ref={mapButtonRef}
-        >
-          Map
-        </button>
+      <div className={styles.navigationWrapper}>
+        <div className={styles.navigation}>
+          <button
+            className={`${styles.mapToggle} ${showMap ? styles.mapOpen : ""}`}
+            onClick={onMapClick}
+            ref={mapButtonRef}
+          >
+            X Map
+          </button>
+        </div>
       </div>
       <div className={styles.contentWrapper}>
         <Switch>

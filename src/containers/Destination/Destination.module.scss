@@ -17,12 +17,28 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.controls {
+.navigationWrapper {
   display: flex;
   padding: 10px;
 }
+.navigation {
+  width: 100%;
+  display: flex;
+  // padding: 10px;
+}
 .mapToggle {
   margin-left: auto;
+  background: transparent;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.mapToggle.mapOpen {
+  color: $white;
+  background: $dark-grey;
+  border-bottom: solid $utrip-blue 4px;
+  padding-bottom: 4px;
 }
 
 .contentWrapper {
@@ -52,12 +68,24 @@
   padding: 0 10px;
 }
 
-// @media only screen and (min-width: 600px) {
-// }
+@media only screen and (min-width: 600px) {
+  .items {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+}
 
 @media only screen and (min-width: 800px) {
   .hero {
     height: 480px;
+  }
+
+  .navigationWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .navigation {
+    border-bottom: solid $dark-grey 2px;
   }
 
   .contentWrapper {
@@ -76,7 +104,8 @@
   .mapWrapper {
     height: calc(100vh - 10px);
     width: 350px;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
   }
 
   .itemDetailsWrapper {
@@ -85,11 +114,21 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .items {
+    padding: 0;
+  }
+
   .items.openMap {
     width: calc(100% - 500px);
+    padding-right: 10px;
   }
 
   .mapWrapper {
     width: 500px;
+    margin-right: 0;
+  }
+
+  .itemDetailsWrapper {
+    padding: 0;
   }
 }
