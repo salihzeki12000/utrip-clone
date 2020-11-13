@@ -16,7 +16,11 @@ export default function ItemDetails() {
   return (
     <div>
       <div className={styles.backButtonWrapper}>
-        <button className={styles.backButton} onClick={() => history.goBack()}>
+        <button
+          className={styles.backButton}
+          onClick={() => history.goBack()}
+          aria-label="Back"
+        >
           Back
         </button>
       </div>

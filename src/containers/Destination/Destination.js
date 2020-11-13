@@ -69,9 +69,21 @@ export default function Destination() {
       <div className={styles.navigationWrapper}>
         <div className={styles.navigation}>
           <button
-            className={`${styles.mapToggle} ${showMap ? styles.mapOpen : ""}`}
+            className={`${styles.navButton} ${styles.active}`}
+            aria-label="Things to Do"
+          >
+            Things to Do
+          </button>
+          <button className={styles.navButton} aria-label="Your Favorites">
+            Your Favorites
+          </button>
+          <button
+            className={`${styles.navButton} ${styles.mapToggle} ${
+              showMap ? styles.active : ""
+            }`}
             onClick={onMapClick}
             ref={mapButtonRef}
+            aria-label="Map"
           >
             X Map
           </button>

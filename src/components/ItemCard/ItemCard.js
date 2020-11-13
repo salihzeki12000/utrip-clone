@@ -11,6 +11,7 @@ export default function ItemCard({ item, size }) {
       to={`${url}/${item.slug}`}
       className={`${styles.itemCardWrapper} ${styles[size]}`}
       style={{ borderColor: colors[item.category] }}
+      aria-label={item.name}
     >
       <div
         className={styles.itemCard}

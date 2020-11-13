@@ -24,21 +24,28 @@
 .navigation {
   width: 100%;
   display: flex;
-  // padding: 10px;
 }
-.mapToggle {
-  margin-left: auto;
+
+.navButton {
   background: transparent;
   padding: 8px 15px;
   border: none;
   cursor: pointer;
   outline: none;
+  &:hover {
+    border-bottom: solid $utrip-blue 4px;
+    padding-bottom: 4px;
+  }
 }
-.mapToggle.mapOpen {
+.navButton.active {
   color: $white;
   background: $dark-grey;
   border-bottom: solid $utrip-blue 4px;
   padding-bottom: 4px;
+}
+
+.mapToggle {
+  margin-left: auto;
 }
 
 .contentWrapper {

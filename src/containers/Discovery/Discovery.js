@@ -37,9 +37,14 @@ export default function Discovery({ history }) {
             options={options}
             onChange={handleSelect}
             placeholder="Enter a Destination"
+            aria-label="Enter a Destination"
           />
           <span className={styles.actionSeparator}>or</span>
-          <button className={styles.inspireButton} onClick={executeScroll}>
+          <button
+            className={styles.inspireButton}
+            onClick={executeScroll}
+            aria-label="Let Us Inspire You"
+          >
             Let Us Inspire You
           </button>
         </div>

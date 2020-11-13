@@ -8,6 +8,7 @@ export default function DestinationCard({ destination, size }) {
     <Link
       to={destination.slug}
       className={`${styles.destinationCardWrapper} ${styles[size]}`}
+      aria-label={destination.name}
     >
       <div
         className={styles.destinationCard}
