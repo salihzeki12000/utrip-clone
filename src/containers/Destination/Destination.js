@@ -105,29 +105,39 @@ export default function Destination() {
       </div>
       <div className={styles.contentWrapper}>
         <Switch>
-          <Route exact path={path}>
-            <StickyContainer
-              className={`${styles.itemsWrapper} ${
-                showMap ? styles.openMap : ""
-              }`}
-            >
-              <ItemGrid items={items} columns={columns} showMap={showMap} />
-              {showMap && width >= 800 ? (
-                <Sticky>
-                  {({ style }) => (
-                    <div style={{ ...style }}>
-                      <MapWrapper items={items} />
-                    </div>
-                  )}
-                </Sticky>
-              ) : null}
-            </StickyContainer>
-          </Route>
+          <StickyContainer
+            className={`${styles.itemsWrapper} ${
+              showMap ? styles.openMap : ""
+            }`}
+          >
+            <Route exact path={path}>
+              <ItemGrid
+                items={items}
+                columns={columns}
+                showMap={showMap}
+                favorites={false}
+              />
+            </Route>
+            <Route exact path={`${path}/favorites`}>
+              <ItemGrid
+                items={[]}
+                columns={columns}
+                showMap={showMap}
+                favorites={true}
+              />
+            </Route>
+            {showMap && width >= 800 ? (
+              <Sticky>
+                {({ style }) => (
+                  <div style={{ ...style }}>
+                    <MapWrapper items={items} />
+                  </div>
+                )}
+              </Sticky>
+            ) : null}
+          </StickyContainer>
           <Route exact path={`${path}/map`}>
             <MapWrapper items={items} />
-          </Route>
-          <Route exact path={`${path}/favorites`}>
-            <div>You haven&apos;t selected any favorites yet.</div>
           </Route>
           <Route path={`${path}/:itemSlug`}>
             <div className={styles.itemDetailsWrapper}>

@@ -1,3 +1,7 @@
+.emptyFavorites {
+  text-align: center;
+}
+
 .items {
   display: flex;
   flex-wrap: wrap;
@@ -16,22 +20,30 @@
 }
 
 @media only screen and (min-width: 800px) {
+  .emptyFavorites {
+    min-width: calc(100% - 360px);
+  }
+
   .itemsWrapper.openMap {
     display: flex;
   }
 
   .items.openMap {
-    width: calc(100% - 350px);
+    width: calc(100% - 380px);
   }
 }
 
 @media only screen and (min-width: 1200px) {
+  .emptyFavorites {
+    min-width: 700px;
+  }
+
   .items {
     padding: 0;
   }
 
   .items.openMap {
-    width: 700px;
+    width: 690px;
     padding-right: 10px;
   }
 }
