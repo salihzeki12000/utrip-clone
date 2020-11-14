@@ -57,7 +57,7 @@
 }
 
 .mapWrapper {
-  height: calc(100vh - 41px);
+  height: calc(100vh - 60px);
 }
 
 .itemDetailsWrapper {
@@ -103,6 +103,12 @@
 
   .itemDetailsWrapper {
     position: relative;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .navigationLeft {
+    display: none;
   }
 }
 

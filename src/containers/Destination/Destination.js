@@ -28,7 +28,6 @@ const scrollToRefObject = (ref) =>
 export default function Destination() {
   const [showMap, setShowMap] = useState(false);
   const { destinationSlug } = useParams();
-  const history = useHistory();
   const { width } = useWindowDimensions();
   const destination = destinations.filter(
     (destination) => destination.slug === destinationSlug
@@ -36,28 +35,6 @@ export default function Destination() {
 
   const columns = width >= 1200 ? 4 : 3;
   let { path, url } = useRouteMatch();
-
-  useEffect(() => {
-    // TODO: Figure out why react-router-dom is scrolling to position of previous page
-    window.scrollTo(0, 0);
-  }, []);
-
-  const mapButtonRef = useRef(null);
-  const executeScroll = () => scrollToRefObject(mapButtonRef);
-  const onMapClick = () => {
-    if (width >= 800) {
-      setShowMap(!showMap);
-    } else {
-      if (showMap) {
-        setShowMap(!showMap);
-        history.goBack();
-      } else {
-        setShowMap(!showMap);
-        history.push(`${url}/map`);
-        executeScroll();
-      }
-    }
-  };
 
   return (
     <div>
@@ -69,73 +46,81 @@ export default function Destination() {
       </div>
       <div className={styles.navigationWrapper}>
         <div className={styles.navigation}>
-          <Link to={url}>
-            <button
-              className={`${styles.navButton} ${
-                useRouteMatch({ path: url, exact: true }) ? styles.active : ""
-              }`}
-              aria-label="Things to Do"
-            >
-              Things to Do
-            </button>
-          </Link>
-          <Link to={`${url}/favorites`}>
-            <button
-              className={`${styles.navButton} ${
-                useRouteMatch({ path: url + "/favorites", exact: true })
-                  ? styles.active
-                  : ""
-              }`}
-              aria-label="Your Favorites"
-            >
-              Your Favorites
-            </button>
-          </Link>
-          <button
-            className={`${styles.navButton} ${styles.mapToggle} ${
-              showMap ? styles.active : ""
-            }`}
-            onClick={onMapClick}
-            ref={mapButtonRef}
-            aria-label="Map"
-          >
-            X Map
-          </button>
+          <div className={styles.navigationLeft}>
+            <Link to={url}>
+              <button
+                className={`${styles.navButton} ${
+                  useRouteMatch({ path: url, exact: true }) ? styles.active : ""
+                }`}
+                aria-label="Things to Do"
+              >
+                Things to Do
+              </button>
+            </Link>
+            <Link to={`${url}/favorites`}>
+              <button
+                className={`${styles.navButton} ${
+                  useRouteMatch({ path: url + "/favorites", exact: true })
+                    ? styles.active
+                    : ""
+                }`}
+                aria-label="Your Favorites"
+              >
+                Your Favorites
+              </button>
+            </Link>
+          </div>
+          <MapToggle showMap={showMap} setShowMap={setShowMap} width={width} />
         </div>
       </div>
       <div className={styles.contentWrapper}>
         <Switch>
-          <StickyContainer
-            className={`${styles.itemsWrapper} ${
-              showMap ? styles.openMap : ""
-            }`}
-          >
-            <Route exact path={path}>
+          <Route exact path={path}>
+            <StickyContainer
+              className={`${styles.itemsWrapper} ${
+                showMap ? styles.openMap : ""
+              }`}
+            >
               <ItemGrid
                 items={items}
                 columns={columns}
                 showMap={showMap}
                 favorites={false}
               />
-            </Route>
-            <Route exact path={`${path}/favorites`}>
+              {showMap && width >= 800 ? (
+                <Sticky>
+                  {({ style }) => (
+                    <div style={{ ...style }}>
+                      <MapWrapper items={items} />
+                    </div>
+                  )}
+                </Sticky>
+              ) : null}
+            </StickyContainer>
+          </Route>
+          <Route exact path={`${path}/favorites`}>
+            <StickyContainer
+              className={`${styles.itemsWrapper} ${
+                showMap ? styles.openMap : ""
+              }`}
+            >
               <ItemGrid
                 items={[]}
                 columns={columns}
                 showMap={showMap}
                 favorites={true}
               />
-            </Route>
-            {showMap && width >= 800 ? (
-              <Sticky>
-                {({ style }) => (
-                  <div style={{ ...style }}>
-                    <MapWrapper items={items} />
-                  </div>
-                )}
-              </Sticky>
-            ) : null}
-          </StickyContainer>
+              {showMap && width >= 800 ? (
+                <Sticky>
+                  {({ style }) => (
+                    <div style={{ ...style }}>
+                      <MapWrapper items={items} />
+                    </div>
+                  )}
+                </Sticky>
+              ) : null}
+            </StickyContainer>
+          </Route>
           <Route exact path={`${path}/map`}>
             <MapWrapper items={items} />
           </Route>
@@ -147,6 +132,54 @@ export default function Destination() {
         </Switch>
       </div>
     </div>
+  );
+}
+
+function MapToggle({ showMap, setShowMap, width }) {
+  const history = useHistory();
+  let { url } = useRouteMatch();
+  useEffect(() => {
+    // TODO: Figure out why react-router-dom is scrolling to position of previous page
+    window.scrollTo(0, 0);
+  }, []);
+
+  const mapRouteActive = useRouteMatch({ path: url + "/map", exact: true });
+  const mapButtonRef = useRef(null);
+  const executeScroll = () => scrollToRefObject(mapButtonRef);
+  const onMapClick = () => {
+    setShowMap(!showMap);
+    if (mapRouteActive) {
+      history.goBack();
+    } else {
+      executeScroll();
+    }
+  };
+
+  if (width >= 800) {
+    return (
+      <button
+        className={`${styles.navButton} ${styles.mapToggle} ${
+          showMap ? styles.active : ""
+        }`}
+        onClick={() => setShowMap(!showMap)}
+        aria-label="Map"
+      >
+        X Map
+      </button>
+    );
+  }
+
+  return (
+    <Link to={`${url}/map`} className={styles.mapToggle}>
+      <button
+        className={`${styles.navButton} ${mapRouteActive ? styles.active : ""}`}
+        onClick={onMapClick}
+        ref={mapButtonRef}
+        aria-label="Map"
+      >
+        X Map
+      </button>
+    </Link>
   );
 }
 
