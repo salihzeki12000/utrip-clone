@@ -8,6 +8,16 @@ import styles from "./ItemDetails.module.scss";
 import colors from "../../styles/categoryColors";
 import useWindowDimensions from "../../hooks/windowDimensions";
 import MapCircle from "../../components/Map/MapCircle/MapCirlce";
+import {
+  ArrowBack,
+  Facebook,
+  Language,
+  Link,
+  Phone,
+  Restaurant,
+  Room,
+  Twitter,
+} from "@material-ui/icons";
 
 export default function ItemDetails() {
   const { itemSlug } = useParams();
@@ -23,7 +33,7 @@ export default function ItemDetails() {
           onClick={() => history.goBack()}
           aria-label="Back"
         >
-          Back
+          <ArrowBack style={{ fontSize: 16, marginRight: 5 }} /> Back
         </button>
       </div>
       <div className={styles.content}>
@@ -35,7 +45,7 @@ export default function ItemDetails() {
             className={styles.itemBadge}
             style={{ backgroundColor: colors[item.category] }}
           >
-            X
+            <Restaurant />
           </div>
           <div
             className={styles.itemImage}
@@ -50,19 +60,25 @@ export default function ItemDetails() {
             </div>
             <div className={styles.contact}>
               <div className={styles.contactType}>
-                <div className={styles.contactIcon}>X</div>
+                <Room className={styles.contactIcon} style={{ fontSize: 20 }} />
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.location : "Address"}
                 </span>
               </div>
               <div className={styles.contactType}>
-                <div className={styles.contactIcon}>X</div>
+                <Language
+                  className={styles.contactIcon}
+                  style={{ fontSize: 20 }}
+                />
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.website : "Website"}
                 </span>
               </div>
               <div className={styles.contactType}>
-                <div className={styles.contactIcon}>X</div>
+                <Phone
+                  className={styles.contactIcon}
+                  style={{ fontSize: 20 }}
+                />
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.phone : "Phone"}
                 </span>
@@ -72,9 +88,9 @@ export default function ItemDetails() {
               <div className={styles.social}>
                 <h4>Share</h4>
                 <div className={styles.socialIcons}>
-                  <div className={styles.socialIcon}>X</div>
-                  <div className={styles.socialIcon}>X</div>
-                  <div className={styles.socialIcon}>X</div>
+                  <Facebook className={styles.socialIcon} />
+                  <Twitter className={styles.socialIcon} />
+                  <Link className={styles.socialIcon} />
                 </div>
               </div>
             ) : null}

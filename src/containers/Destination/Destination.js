@@ -18,6 +18,7 @@ import styles from "./Destination.module.scss";
 import ItemGrid from "../../components/ItemGrid/ItemGrid";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 import Map from "../../components/Map/Map";
+import { Room } from "@material-ui/icons";
 
 const scrollToRefObject = (ref) =>
   window.scrollTo({
@@ -164,7 +165,7 @@ function MapToggle({ showMap, setShowMap, width }) {
         onClick={() => setShowMap(!showMap)}
         aria-label="Map"
       >
-        X Map
+        <Room style={{ fontSize: 12 }} /> Map
       </button>
     );
   }
@@ -177,7 +178,7 @@ function MapToggle({ showMap, setShowMap, width }) {
         ref={mapButtonRef}
         aria-label="Map"
       >
-        X Map
+        <Room style={{ fontSize: 12 }} /> Map
       </button>
     </Link>
   );

@@ -1,8 +1,16 @@
+@import "../../styles/colors.scss";
+
 .backButtonWrapper {
   padding: 10px;
 }
 
 .backButton {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .details {
@@ -48,12 +56,15 @@
   padding: 10px;
 }
 .contactType {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .contactIcon {
+  color: $dark-grey;
 }
 .contactLabel {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .about {
@@ -122,9 +133,8 @@
     border: none;
   }
   .contactType {
-    text-align: left;
-    display: flex;
     margin-bottom: 20px;
+    flex-direction: row;
   }
   .contactIcon {
     padding-left: 4px;
@@ -137,6 +147,9 @@
   .socialIcons {
     display: flex;
     justify-content: space-around;
+  }
+  .socialIcon {
+    color: $dark-grey;
   }
 
   .itemImage {
