@@ -5,11 +5,25 @@
 .backButton {
 }
 
+.details {
+  border-top: solid 4px;
+  position: relative;
+}
+.itemBadge {
+  color: white;
+  height: 35px;
+  width: 39px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
 .itemImage {
   height: 250px;
   background-size: cover;
   background-position: center center;
-  border-top: solid 4px;
 }
 
 .itemHeader {
@@ -61,14 +75,76 @@
     display: flex;
   }
   .details {
-    width: 55%;
+    width: calc(100% - 360px);
   }
   .mapWrapper {
     display: inline-block;
     margin-left: 10px;
-    width: calc(45% - 10px);
+    width: 350px;
     background-color: silver;
     background-size: cover;
     background-position: center center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .details {
+    width: 690px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mapWrapper {
+    width: 500px;
+  }
+
+  .left {
+    order: -1;
+    margin-top: 25px;
+    height: 275px;
+    width: 280px;
+  }
+
+  .itemHeader {
+    padding-left: 40px;
+    border: none;
+  }
+  .name {
+    font-size: 22px;
+  }
+  .phrase {
+    margin-top: 2px;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .contactType {
+    text-align: left;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .contactIcon {
+    padding-left: 4px;
+    margin-right: 15px;
+  }
+
+  .social {
+    padding: 0 12px;
+  }
+  .socialIcons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .itemImage {
+    height: 300px;
+    width: 410px;
+  }
+  .about {
+    width: 390px;
+    margin-left: auto;
   }
 }
