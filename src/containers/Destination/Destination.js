@@ -50,7 +50,7 @@ export default function Destination() {
     } else {
       if (showMap) {
         setShowMap(!showMap);
-        history.push(`${url}`);
+        history.goBack();
       } else {
         setShowMap(!showMap);
         history.push(`${url}/map`);
