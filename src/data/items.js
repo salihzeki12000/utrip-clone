@@ -1,4 +1,4 @@
-const pois = [
+const items = [
   {
     name: "Venture Coffee Co",
     slug: "venture-coffee",
@@ -197,7 +197,7 @@ const pois = [
   },
 ];
 
-export default pois;
+export default items;
 
 // {
 //   name: "",

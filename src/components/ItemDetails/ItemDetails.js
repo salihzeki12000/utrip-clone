@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 // @ts-ignore
-import pois from "../../data/pois";
+import items from "../../data/items";
 // @ts-ignore
 import styles from "./ItemDetails.module.scss";
 import colors from "../../styles/categoryColors";
@@ -11,7 +11,7 @@ import MapCircle from "../../components/Map/MapCircle/MapCirlce";
 export default function ItemDetails() {
   const { itemSlug } = useParams();
   const history = useHistory();
-  const item = pois.filter((poi) => poi.slug == itemSlug)[0];
+  const item = items.filter((poi) => poi.slug == itemSlug)[0];
 
   return (
     <div>

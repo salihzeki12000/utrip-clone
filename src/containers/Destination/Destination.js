@@ -5,16 +5,17 @@ import {
   useHistory,
   Switch,
   Route,
+  Link,
 } from "react-router-dom";
 import { StickyContainer, Sticky } from "react-sticky";
 import useWindowDimensions from "../../hooks/windowDimensions";
 // @ts-ignore
 import destinations from "../../data/destinations";
 // @ts-ignore
-import pois from "../../data/pois";
+import items from "../../data/items";
 // @ts-ignore
 import styles from "./Destination.module.scss";
-import ItemCard from "../../components/ItemCard/ItemCard";
+import ItemGrid from "../../components/ItemGrid/ItemGrid";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 import Map from "../../components/Map/Map";
 
@@ -68,15 +69,28 @@ export default function Destination() {
       </div>
       <div className={styles.navigationWrapper}>
         <div className={styles.navigation}>
-          <button
-            className={`${styles.navButton} ${styles.active}`}
-            aria-label="Things to Do"
-          >
-            Things to Do
-          </button>
-          <button className={styles.navButton} aria-label="Your Favorites">
-            Your Favorites
-          </button>
+          <Link to={url}>
+            <button
+              className={`${styles.navButton} ${
+                useRouteMatch({ path: url, exact: true }) ? styles.active : ""
+              }`}
+              aria-label="Things to Do"
+            >
+              Things to Do
+            </button>
+          </Link>
+          <Link to={`${url}/favorites`}>
+            <button
+              className={`${styles.navButton} ${
+                useRouteMatch({ path: url + "/favorites", exact: true })
+                  ? styles.active
+                  : ""
+              }`}
+              aria-label="Your Favorites"
+            >
+              Your Favorites
+            </button>
+          </Link>
           <button
             className={`${styles.navButton} ${styles.mapToggle} ${
               showMap ? styles.active : ""
@@ -97,25 +111,12 @@ export default function Destination() {
                 showMap ? styles.openMap : ""
               }`}
             >
-              <div
-                className={`${styles.items} ${showMap ? styles.openMap : ""}`}
-              >
-                {pois.map((poi, i) => {
-                  let size = (i % 16) % 5 == 0 ? "large" : "small";
-                  if (columns == 3) {
-                    size = (i % 9) % 4 == 0 ? "large" : "small";
-                  }
-                  if (showMap) {
-                    size = "half";
-                  }
-                  return <ItemCard key={poi.slug} item={poi} size={size} />;
-                })}
-              </div>
+              <ItemGrid items={items} columns={columns} showMap={showMap} />
               {showMap && width >= 800 ? (
                 <Sticky>
                   {({ style }) => (
                     <div style={{ ...style }}>
-                      <MapWrapper items={pois} />
+                      <MapWrapper items={items} />
                     </div>
                   )}
                 </Sticky>
@@ -123,7 +124,10 @@ export default function Destination() {
             </StickyContainer>
           </Route>
           <Route exact path={`${path}/map`}>
-            <MapWrapper items={pois} />
+            <MapWrapper items={items} />
+          </Route>
+          <Route exact path={`${path}/favorites`}>
+            <div>You haven&apos;t selected any favorites yet.</div>
           </Route>
           <Route path={`${path}/:itemSlug`}>
             <div className={styles.itemDetailsWrapper}>

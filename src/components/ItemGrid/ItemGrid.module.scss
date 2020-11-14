@@ -1,0 +1,37 @@
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+  &:after {
+    content: "";
+    flex: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .items {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .itemsWrapper.openMap {
+    display: flex;
+  }
+
+  .items.openMap {
+    width: calc(100% - 350px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .items {
+    padding: 0;
+  }
+
+  .items.openMap {
+    width: 700px;
+    padding-right: 10px;
+  }
+}
