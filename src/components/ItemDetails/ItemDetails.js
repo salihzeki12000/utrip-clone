@@ -45,7 +45,10 @@ export default function ItemDetails() {
             className={styles.itemBadge}
             style={{ backgroundColor: colors[item.category] }}
           >
-            <CategoryIcon category={item.category} />
+            <CategoryIcon
+              category={item.category}
+              style={{ marginBottom: 4 }}
+            />
           </div>
           <div
             className={styles.itemImage}
