@@ -1,6 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import MapCircle from "./MapCircle/MapCirlce";
+import MapCircle from "./MapCircle/MapCircle";
 
 export default function Map({ items }) {
   return (

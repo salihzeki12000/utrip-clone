@@ -7,14 +7,14 @@ import items from "../../data/items";
 import styles from "./ItemDetails.module.scss";
 import colors from "../../styles/categoryColors";
 import useWindowDimensions from "../../hooks/windowDimensions";
-import MapCircle from "../../components/Map/MapCircle/MapCirlce";
+import MapCircle from "../Map/MapCircle/MapCircle";
+import CategoryIcon from "../../components/CategoryIcon/CategoryIcon";
 import {
   ArrowBack,
   Facebook,
   Language,
   Link,
   Phone,
-  Restaurant,
   Room,
   Twitter,
 } from "@material-ui/icons";
@@ -45,7 +45,7 @@ export default function ItemDetails() {
             className={styles.itemBadge}
             style={{ backgroundColor: colors[item.category] }}
           >
-            <Restaurant />
+            <CategoryIcon category={item.category} />
           </div>
           <div
             className={styles.itemImage}
