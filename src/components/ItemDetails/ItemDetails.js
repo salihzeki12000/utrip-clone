@@ -62,13 +62,23 @@ export default function ItemDetails() {
               <p className={styles.phrase}>{item.phrase}</p>
             </div>
             <div className={styles.contact}>
-              <div className={styles.contactType}>
+              <a
+                href={`https://maps.google.com/?q=${item.location}`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactType}
+              >
                 <Room className={styles.contactIcon} style={{ fontSize: 20 }} />
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.location : "Address"}
                 </span>
-              </div>
-              <div className={styles.contactType}>
+              </a>
+              <a
+                href={item.website}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactType}
+              >
                 <Language
                   className={styles.contactIcon}
                   style={{ fontSize: 20 }}
@@ -76,8 +86,8 @@ export default function ItemDetails() {
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.website : "Website"}
                 </span>
-              </div>
-              <div className={styles.contactType}>
+              </a>
+              <a href={`tel:${item.phone}`} className={styles.contactType}>
                 <Phone
                   className={styles.contactIcon}
                   style={{ fontSize: 20 }}
@@ -85,7 +95,7 @@ export default function ItemDetails() {
                 <span className={styles.contactLabel}>
                   {width >= 1200 ? item.phone : "Phone"}
                 </span>
-              </div>
+              </a>
             </div>
             {width >= 1200 ? (
               <div className={styles.social}>

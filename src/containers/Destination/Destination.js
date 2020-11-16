@@ -37,6 +37,15 @@ export default function Destination() {
   const columns = width >= 1200 ? 4 : 3;
   let { path, url } = useRouteMatch();
 
+  const favoritesActive = useRouteMatch({
+    path: url + "/favorites",
+    exact: true,
+  });
+  let thingsToDoActive = true;
+  if (favoritesActive) {
+    thingsToDoActive = false;
+  }
+
   return (
     <div>
       <div
@@ -51,7 +60,7 @@ export default function Destination() {
             <Link to={url}>
               <button
                 className={`${styles.navButton} ${
-                  useRouteMatch({ path: url, exact: true }) ? styles.active : ""
+                  thingsToDoActive ? styles.active : ""
                 }`}
                 aria-label="Things to Do"
               >
@@ -61,9 +70,7 @@ export default function Destination() {
             <Link to={`${url}/favorites`}>
               <button
                 className={`${styles.navButton} ${
-                  useRouteMatch({ path: url + "/favorites", exact: true })
-                    ? styles.active
-                    : ""
+                  favoritesActive ? styles.active : ""
                 }`}
                 aria-label="Your Favorites"
               >
