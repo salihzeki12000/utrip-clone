@@ -55,6 +55,11 @@
 
 .itemsWrapper {
   position: relative;
+  // flex-direction: column;
+  // &:after {
+  //   content: "";
+  //   flex: 1;
+  // }
 }
 
 .mapWrapper {

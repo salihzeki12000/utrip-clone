@@ -13,17 +13,19 @@ export default function ItemGrid({ items, columns, showMap, favorites }) {
   }
 
   return (
-    <div className={`${styles.items} ${showMap ? styles.openMap : ""}`}>
-      {items.map((poi, i) => {
-        let size = (i % 16) % 5 == 0 ? "large" : "small";
-        if (columns == 3) {
-          size = (i % 9) % 4 == 0 ? "large" : "small";
-        }
-        if (showMap) {
-          size = "half";
-        }
-        return <ItemCard key={poi.slug} item={poi} size={size} />;
-      })}
+    <div className={`${styles.gridWrapper} ${showMap ? styles.openMap : ""}`}>
+      <div className={styles.items}>
+        {items.map((poi, i) => {
+          let size = (i % 16) % 5 == 0 ? "large" : "small";
+          if (columns == 3) {
+            size = (i % 9) % 4 == 0 ? "large" : "small";
+          }
+          if (showMap) {
+            size = "half";
+          }
+          return <ItemCard key={poi.slug} item={poi} size={size} />;
+        })}
+      </div>
     </div>
   );
 }

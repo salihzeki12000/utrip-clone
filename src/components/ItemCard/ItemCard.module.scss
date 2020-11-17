@@ -36,28 +36,18 @@
 
 @media only screen and (min-width: 600px) {
   .itemCardWrapper {
-    width: calc(50% - 5px);
-  }
-  .itemCardWrapper:last-child {
-    margin-left: 10px;
-  }
-  .itemCardWrapper:first-child {
-    margin-left: 0;
+    width: calc(50% - 10px);
+    margin: 0 5px;
+    margin-bottom: 10px;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .itemCardWrapper.small {
-    width: calc(30% - 8px);
+    width: calc(30% - 10px);
   }
   .itemCardWrapper.large {
-    width: calc(40% - 8px);
-  }
-  .itemCardWrapper:last-child:not(.half) {
-    margin-left: 12px;
-  }
-  .itemCardWrapper:first-child:not(.half) {
-    margin-left: 0;
+    width: calc(40% - 10px);
   }
 }
 
