@@ -134,9 +134,11 @@ export default function ItemDetails() {
               lat: item.lat,
               lng: item.lng,
             }}
-            defaultZoom={15}
+            defaultZoom={16}
           >
-            <MapCircle lat={item.lat} lng={item.lng} item={item} />
+            {pois.map((poi) => (
+              <MapCircle lat={poi.lat} lng={poi.lng} item={poi} />
+            ))}
           </GoogleMapReact>
         </div>
       </div>
