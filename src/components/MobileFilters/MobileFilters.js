@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 // @ts-ignore
 import styles from "./MobileFilters.module.scss";
 
-export default function MobileFilters({ width }) {
+export default function MobileFilters({ width, searchFunction }) {
   let { url } = useRouteMatch();
   const history = useHistory();
 
@@ -31,6 +31,7 @@ export default function MobileFilters({ width }) {
           placeholder="Search"
           className={styles.search}
           aria-label="Search"
+          onChange={searchFunction}
         />
       </div>
     );

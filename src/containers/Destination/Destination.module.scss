@@ -88,6 +88,13 @@
     flex-direction: row;
   }
 
+  .search {
+    border: none;
+    background-color: #e8e9e8;
+    padding: 8px;
+    outline: none;
+  }
+
   .contentWrapper {
     max-width: 1200px;
     margin: auto;

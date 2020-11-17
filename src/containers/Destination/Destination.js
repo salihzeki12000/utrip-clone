@@ -12,7 +12,7 @@ import useWindowDimensions from "../../hooks/windowDimensions";
 // @ts-ignore
 import destinations from "../../data/destinations";
 // @ts-ignore
-import items from "../../data/items";
+import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./Destination.module.scss";
 import ItemGrid from "../../components/ItemGrid/ItemGrid";
@@ -29,6 +29,8 @@ const scrollToRefObject = (ref) =>
 
 export default function Destination() {
   const [showMap, setShowMap] = useState(false);
+  const [search, setSearch] = useState("");
+  const [items, setItems] = useState(pois);
   const { destinationSlug } = useParams();
   const { width } = useWindowDimensions();
   const destination = destinations.filter(
@@ -47,6 +49,16 @@ export default function Destination() {
     thingsToDoActive = false;
   }
 
+  const onSearchChange = (e) => {
+    const newVal = e.target.value;
+    setSearch(newVal);
+    const itemSearch = pois.filter((poi) =>
+      poi.name.toLowerCase().includes(newVal.toLowerCase())
+    );
+
+    setItems(itemSearch);
+  };
+
   return (
     <div>
       <div
@@ -57,7 +69,7 @@ export default function Destination() {
       </div>
       <div className={styles.navigationWrapper}>
         <div className={styles.navigation}>
-          <MobileFilters width={width} />
+          <MobileFilters width={width} searchFunction={onSearchChange} />
           <div className={styles.navigationLeft}>
             <Link to={url}>
               <button
@@ -79,6 +91,16 @@ export default function Destination() {
                 Your Favorites
               </button>
             </Link>
+            {width >= 800 ? (
+              <input
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                className={styles.search}
+                value={search}
+                onChange={onSearchChange}
+              />
+            ) : null}
           </div>
           <MapToggle showMap={showMap} setShowMap={setShowMap} width={width} />
         </div>

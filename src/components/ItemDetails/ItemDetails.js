@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 // @ts-ignore
-import items from "../../data/items";
+import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./ItemDetails.module.scss";
 import colors from "../../styles/categoryColors";
@@ -23,7 +23,7 @@ export default function ItemDetails() {
   const { itemSlug } = useParams();
   const history = useHistory();
   const { width } = useWindowDimensions();
-  const item = items.filter((poi) => poi.slug == itemSlug)[0];
+  const item = pois.filter((poi) => poi.slug == itemSlug)[0];
 
   return (
     <div>
