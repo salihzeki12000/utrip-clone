@@ -18,6 +18,7 @@ import styles from "./Destination.module.scss";
 import ItemGrid from "../../components/ItemGrid/ItemGrid";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 import Map from "../../components/Map/Map";
+import MobileFilters from "../../components/MobileFilters/MobileFilters";
 import { Room } from "@material-ui/icons";
 
 const scrollToRefObject = (ref) =>
@@ -56,6 +57,7 @@ export default function Destination() {
       </div>
       <div className={styles.navigationWrapper}>
         <div className={styles.navigation}>
+          <MobileFilters width={width} />
           <div className={styles.navigationLeft}>
             <Link to={url}>
               <button
