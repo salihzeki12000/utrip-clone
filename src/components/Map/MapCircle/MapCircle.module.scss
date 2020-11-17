@@ -1,9 +1,50 @@
+@import "../../../styles/colors.scss";
+
 .mapCircle {
   height: 16px;
   width: 16px;
-  border: solid #fff 2px;
+  border: solid $white 2px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.itemHover {
+  background-color: $white;
+  border-top: solid 4px;
+  padding: 5px;
+  color: $dark-grey;
+  text-decoration: none;
+  text-align: center;
+  z-index: 2;
+  position: absolute;
+  bottom: 26px;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.itemHover:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-top: solid 10px $white;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+}
+
+.itemName {
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.itemImage {
+  height: 65px;
+  width: 80px;
+  background-size: cover;
+  background-position: center center;
 }

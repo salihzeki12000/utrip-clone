@@ -13,11 +13,24 @@ export default function MapCircle({ item, $hover }) {
       className={styles.mapCircle}
       style={{ backgroundColor: colors[item.category] }}
     >
+      {$hover ? (
+        <div
+          className={styles.itemHover}
+          style={{ borderColor: colors[item.category] }}
+        >
+          <p className={styles.itemName}>{item.name}</p>
+          <div
+            className={styles.itemImage}
+            style={{
+              backgroundImage: `url(${item.image})`,
+            }}
+          />
+        </div>
+      ) : null}
       <CategoryIcon
         category={item.category}
         style={{ color: "#fff", fontSize: 10 }}
       />
-      {$hover ? item.name : ""}
     </Link>
   );
 }
