@@ -8,6 +8,7 @@ import {
   Link,
 } from "react-router-dom";
 import { StickyContainer, Sticky } from "react-sticky";
+import { FavoritesProvider } from "../../context/favorites-context";
 import useWindowDimensions from "../../hooks/windowDimensions";
 // @ts-ignore
 import destinations from "../../data/destinations";
@@ -15,7 +16,6 @@ import destinations from "../../data/destinations";
 import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./Destination.module.scss";
-import { FavoritesProvider } from "../../context/favorites-context";
 import ItemGrid from "../../components/ItemGrid/ItemGrid";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 import Map from "../../components/Map/Map";
@@ -118,7 +118,7 @@ export default function Destination() {
                 items={items}
                 columns={columns}
                 showMap={showMap}
-                favorites={false}
+                favoritesGrid={false}
               />
               {showMap && width >= 800 ? (
                 <Sticky>
@@ -138,10 +138,10 @@ export default function Destination() {
               }`}
             >
               <ItemGrid
-                items={[]}
+                items={items}
                 columns={columns}
                 showMap={showMap}
-                favorites={true}
+                favoritesGrid={true}
               />
               {showMap && width >= 800 ? (
                 <Sticky>
