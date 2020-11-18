@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useFavorites } from "../../context/favorites-context";
 // @ts-ignore
 import styles from "./ItemCard.module.scss";
 import colors from "../../styles/categoryColors";
-import { Favorite, FavoriteBorder } from "@material-ui/icons";
-import { SvgIcon } from "@material-ui/core";
+import { Favorite } from "@material-ui/icons";
 
 export default function ItemCard({ item, size }) {
   let { url } = useRouteMatch();
-  const [hoverFavorite, setHoverFavorite] = useState();
   const [favorites, favoritesDispatch] = useFavorites();
   const favorite = favorites.favorites.indexOf(item.slug) >= 0;
 
@@ -31,11 +29,10 @@ export default function ItemCard({ item, size }) {
       >
         <div className={styles.itemDetails}>
           <div className={styles.itemNameWrapper}>
-            <SvgIcon
-              component={hoverFavorite || favorite ? Favorite : FavoriteBorder}
-              className={styles.favorite}
-              onMouseEnter={() => setHoverFavorite(true)}
-              onMouseLeave={() => setHoverFavorite(false)}
+            <Favorite
+              className={`${styles.favorite} ${
+                favorite ? styles.favorited : ""
+              }`}
               onClick={toggleFavorite}
             />
             <span className={styles.itemName}>{item.name}</span>

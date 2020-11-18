@@ -50,6 +50,14 @@
   color: $favorite;
   cursor: pointer;
   margin-right: 4px;
+  stroke-width: 2px;
+  &:not(.favorited) {
+    stroke: $favorite;
+    fill: transparent;
+    &:hover {
+      fill: $favorite;
+    }
+  }
 }
 
 .name {

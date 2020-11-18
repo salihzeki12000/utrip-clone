@@ -25,6 +25,14 @@
 .favorite {
   color: $favorite;
   margin-right: 8px;
+  stroke-width: 2px;
+  &:not(.favorited) {
+    stroke: $favorite;
+    fill: transparent;
+    &:hover {
+      fill: $favorite;
+    }
+  }
 }
 
 .itemNameWrapper,

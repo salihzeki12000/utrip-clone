@@ -11,6 +11,15 @@
   position: relative;
 }
 
+.favorite {
+  color: $favorite;
+  stroke: $white;
+  stroke-width: 2px;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+}
+
 .itemHover {
   background-color: $white;
   border-top: solid 4px;
