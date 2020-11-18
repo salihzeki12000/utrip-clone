@@ -40,14 +40,27 @@
   padding: 0 10px;
 }
 
-.name {
+.nameWrapper {
+  display: flex;
+  align-items: center;
   margin-top: 10px;
-  margin-bottom: 0;
+}
+
+.favorite {
+  color: $favorite;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.name {
+  margin: 0;
 }
 
 .phrase {
   color: grey;
-  margin: 8px 0;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  padding-left: 28px;
 }
 
 .contact {
@@ -109,7 +122,7 @@
   }
 
   .mapWrapper {
-    width: 500px;
+    width: 480px;
   }
 
   .left {
@@ -120,8 +133,11 @@
   }
 
   .itemHeader {
-    padding-left: 40px;
+    padding-left: 14px;
     border: none;
+  }
+  .nameWrapper {
+    margin-top: 15px;
   }
   .name {
     font-size: 22px;
@@ -162,5 +178,12 @@
   .about {
     width: 390px;
     margin-left: auto;
+  }
+}
+
+// TODO: Fix this band-aid
+@media only screen and (min-width: 1220px) {
+  .mapWrapper {
+    width: 500px;
   }
 }

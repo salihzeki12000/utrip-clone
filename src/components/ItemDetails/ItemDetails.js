@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 // @ts-ignore
@@ -16,13 +16,22 @@ import {
   Phone,
   Room,
   Twitter,
+  Favorite,
+  FavoriteBorder,
 } from "@material-ui/icons";
 import LinkIcon from "@material-ui/icons/Link";
+import { SvgIcon } from "@material-ui/core";
 
 export default function ItemDetails() {
+  const [hoverFavorite, setHoverFavorite] = useState();
   const { itemSlug, destinationSlug } = useParams();
   const { width } = useWindowDimensions();
   const item = pois.filter((poi) => poi.slug == itemSlug)[0];
+
+  const toggleFavorite = (e) => {
+    e.preventDefault();
+    console.log(item.slug);
+  };
 
   return (
     <div>
@@ -53,7 +62,16 @@ export default function ItemDetails() {
           />
           <div className={styles.left}>
             <div className={styles.itemHeader}>
-              <h2 className={styles.name}>{item.name}</h2>
+              <div className={styles.nameWrapper}>
+                <SvgIcon
+                  component={hoverFavorite ? Favorite : FavoriteBorder}
+                  className={styles.favorite}
+                  onMouseEnter={() => setHoverFavorite(true)}
+                  onMouseLeave={() => setHoverFavorite(false)}
+                  onClick={toggleFavorite}
+                />
+                <h2 className={styles.name}>{item.name}</h2>
+              </div>
               <p className={styles.phrase}>{item.phrase}</p>
             </div>
             <div className={styles.contact}>
