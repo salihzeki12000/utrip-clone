@@ -15,6 +15,7 @@ import destinations from "../../data/destinations";
 import pois from "../../data/pois";
 // @ts-ignore
 import styles from "./Destination.module.scss";
+import { FavoritesProvider } from "../../context/favorites-context";
 import ItemGrid from "../../components/ItemGrid/ItemGrid";
 import ItemDetails from "../../components/ItemDetails/ItemDetails";
 import Map from "../../components/Map/Map";
@@ -60,7 +61,7 @@ export default function Destination() {
   };
 
   return (
-    <div>
+    <FavoritesProvider destination={destination.slug}>
       <div
         className={styles.hero}
         style={{ backgroundImage: `url(${destination.image})` }}
@@ -163,7 +164,7 @@ export default function Destination() {
           </Route>
         </Switch>
       </div>
-    </div>
+    </FavoritesProvider>
   );
 }
 

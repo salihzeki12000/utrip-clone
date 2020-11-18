@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
+import { useFavorites } from "../../context/favorites-context";
 // @ts-ignore
 import pois from "../../data/pois";
 // @ts-ignore
@@ -27,10 +28,12 @@ export default function ItemDetails() {
   const { itemSlug, destinationSlug } = useParams();
   const { width } = useWindowDimensions();
   const item = pois.filter((poi) => poi.slug == itemSlug)[0];
+  const [favorites, favoritesDispatch] = useFavorites();
+  const favorite = favorites.favorites.indexOf(item.slug) >= 0;
 
   const toggleFavorite = (e) => {
     e.preventDefault();
-    console.log(item.slug);
+    favoritesDispatch({ type: "favorite", itemSlug: item.slug });
   };
 
   return (
@@ -64,7 +67,9 @@ export default function ItemDetails() {
             <div className={styles.itemHeader}>
               <div className={styles.nameWrapper}>
                 <SvgIcon
-                  component={hoverFavorite ? Favorite : FavoriteBorder}
+                  component={
+                    hoverFavorite || favorite ? Favorite : FavoriteBorder
+                  }
                   className={styles.favorite}
                   onMouseEnter={() => setHoverFavorite(true)}
                   onMouseLeave={() => setHoverFavorite(false)}
