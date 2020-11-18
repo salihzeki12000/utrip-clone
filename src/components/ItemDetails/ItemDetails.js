@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 // @ts-ignore
 import pois from "../../data/pois";
@@ -13,29 +13,24 @@ import {
   ArrowBack,
   Facebook,
   Language,
-  Link,
   Phone,
   Room,
   Twitter,
 } from "@material-ui/icons";
+import LinkIcon from "@material-ui/icons/Link";
 
 export default function ItemDetails() {
-  const { itemSlug } = useParams();
-  const history = useHistory();
+  const { itemSlug, destinationSlug } = useParams();
   const { width } = useWindowDimensions();
   const item = pois.filter((poi) => poi.slug == itemSlug)[0];
 
   return (
     <div>
-      <div className={styles.backButtonWrapper}>
-        <button
-          className={styles.backButton}
-          onClick={() => history.goBack()}
-          aria-label="Back"
-        >
+      <Link to={`/${destinationSlug}`} className={styles.backButtonWrapper}>
+        <button className={styles.backButton} aria-label="Back">
           <ArrowBack style={{ fontSize: 16, marginRight: 5 }} /> Back
         </button>
-      </div>
+      </Link>
       <div className={styles.content}>
         <div
           className={styles.details}
@@ -103,7 +98,7 @@ export default function ItemDetails() {
                 <div className={styles.socialIcons}>
                   <Facebook className={styles.socialIcon} />
                   <Twitter className={styles.socialIcon} />
-                  <Link className={styles.socialIcon} />
+                  <LinkIcon className={styles.socialIcon} />
                 </div>
               </div>
             ) : null}

@@ -16,22 +16,47 @@
   position: relative;
 }
 
-.itemNameWrapper {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px 20px;
+.itemDetails {
   position: absolute;
   bottom: 20%;
+  max-width: 80%;
+}
+
+.favorite {
+  color: $favorite;
+  margin-right: 8px;
+}
+
+.itemNameWrapper,
+.itemPhrase {
+  background: rgba(0, 0, 0, 0.5);
+  color: $white;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.itemNameWrapper {
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
 }
 
 .itemName,
 .itemPhrase {
-  color: $white;
-  margin: 0;
-  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemName {
+  font-size: 18px;
 }
 
 .itemPhrase {
   font-size: 14px;
+  padding-top: 2px;
+  padding-left: 44px;
 }
 
 @media only screen and (min-width: 600px) {
